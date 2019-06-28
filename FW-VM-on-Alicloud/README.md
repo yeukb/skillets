@@ -1,4 +1,4 @@
-# Deploy one PA VM on Alicloud using Terraform
+# Deploy one PA VM-Series on Alicloud using Terraform
 
 Prequisites:
 - Create a keypair in the region where you want to deploy the PA VM
