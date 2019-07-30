@@ -5,11 +5,15 @@ import urllib3
 import subprocess
 import sys
 
+def install(package):
+    subprocess.call([sys.executable, "-m", "pip", "install", package])
+
+install('python_terraform')
+
 try:
     from python_terraform import Terraform
 except ImportError:
-    import pip
-    pip.main(['install', '--user', 'python_terraform'])
+    install('python_terraform')
     from python_terraform import Terraform
 
 
