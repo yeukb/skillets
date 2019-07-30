@@ -59,12 +59,12 @@ response = requests.get(url, verify=False)
 
 # Print External LB IP Address and FW MGMT IP addresses
 url = "You can access the web service using http://%s\n" % (ext_lb_public_ip)
-print url
+print(url)
 
 url = "You can access FW1 using https://%s\n" % (fw1_public_ip)
-print url
+print(url)
 
 url = "You can access FW2 using https://%s\n" % (fw2_public_ip)
-print url
+print(url)
 
 
