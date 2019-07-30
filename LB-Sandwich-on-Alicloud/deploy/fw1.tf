@@ -51,3 +51,22 @@ resource "alicloud_network_interface_attachment" "fw1-trust" {
 }
 
 
+
+
+resource "alicloud_eip" "fw1-eip" {
+  name                 = "fw1-eip"
+  description          = "Public IP assigned to fw1"
+  bandwidth            = "1"
+  internet_charge_type = "PayByTraffic"
+}
+
+
+resource "alicloud_eip_association" "eip_asso" {
+  allocation_id = "${alicloud_eip.fw1-eip.id}"
+  instance_id   = "${alicloud_network_interface.fw1-eni1.id}"
+  instance_type = "NetworkInterface"
+
+  depends_on = ["alicloud_eip.fw1-eip",
+                "alicloud_network_interface.fw1-eni1"]
+}
+

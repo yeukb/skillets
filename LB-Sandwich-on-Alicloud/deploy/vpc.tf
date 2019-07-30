@@ -139,3 +139,15 @@ resource "alicloud_security_group_rule" "allow_all" {
 }
 
 
+
+resource "alicloud_route_entry" "default" {
+  route_table_id        = "${alicloud_vpc.fw_vpc.route_table_id}"
+  destination_cidrblock = "0.0.0.0/0"
+  nexthop_type          = "NetworkInterface"
+  nexthop_id            = "${alicloud_network_interface.fw1-eni2.id}"
+
+    depends_on = ["alicloud_network_interface.fw1-eni1",
+                  "alicloud_network_interface_attachment.fw1-trust"]
+}
+
+

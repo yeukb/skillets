@@ -1,12 +1,9 @@
-# Deploy one PA VM-Series on Alicloud using Terraform
-
-Prequisites:
-- Create a custom image to launch the PA VM
-  - https://docs.paloaltonetworks.com/vm-series/9-0/vm-series-deployment/set-up-the-vm-series-firewall-on-alibaba-cloud/prepare-to-deploy-the-vm-series-firewall-on-alibaba-cloud.html#idd95814fd-ab5f-4a67-a060-e9858975316c
-  - Your customer image name must contain the string: "vm-series-9.0.1"
+# Deploy Base Config to VM-Series
 
 Description:
-- This skillet deploys a single VM-Series on Alibaba Cloud with 3 interfaces (Management, Untrust, Trust), with a public IP attached to the management interface.
+- This skillet deploys Base Config to VM-Series. This step is required as bootstrapping of VM-Series on Alicloud is not supported yet. In future, when bootstrapping is supported, this step will not be required.
+- As the image used is the base KVM image, the default username/password can be used to log into the VM-Series.
+- Please wait at least 5 mins after the VM-Series has been deployed in the previous step to run this step.
 
 
 ## Support Policy

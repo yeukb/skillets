@@ -31,14 +31,15 @@ resource "alicloud_slb_listener" "int-http-listener" {
   bandwidth = 5
   health_check = "on"
   health_check_type ="tcp"
+  server_group_id = "${alicloud_slb_server_group.server-pool-1.id}"
 }
 
 
-resource "alicloud_slb_rule" "int-default" {
-    load_balancer_id = "${alicloud_slb.skillet-int-LB.id}"
-    frontend_port = "${alicloud_slb_listener.int-http-listener.frontend_port}"
-    name = "Web-Rule"
-    server_group_id = "${alicloud_slb_server_group.server-pool-1.id}"
-}
+# resource "alicloud_slb_rule" "int-default" {
+#    load_balancer_id = "${alicloud_slb.skillet-int-LB.id}"
+#    frontend_port = "${alicloud_slb_listener.int-http-listener.frontend_port}"
+#    name = "Web-Rule"
+#    server_group_id = "${alicloud_slb_server_group.server-pool-1.id}"
+# }
 
 

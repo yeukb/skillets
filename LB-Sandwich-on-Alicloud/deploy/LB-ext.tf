@@ -22,6 +22,7 @@ resource "alicloud_slb_server_group" "vm-fw-pool-1" {
             server_ids = ["${alicloud_network_interface.fw1-eni1.id}", "${alicloud_network_interface.fw2-eni1.id}"]
             port = 80
             weight = 100
+            type = "eni"
         }
     ]
 }
@@ -35,13 +36,14 @@ resource "alicloud_slb_listener" "ext-http-listener" {
   bandwidth = 5
   health_check = "on"
   health_check_type ="tcp"
+  server_group_id = "${alicloud_slb_server_group.vm-fw-pool-1.id}"
 }
 
 
-resource "alicloud_slb_rule" "ext-default" {
-    load_balancer_id = "${alicloud_slb.skillet-ext-LB.id}"
-    frontend_port = "${alicloud_slb_listener.ext-http-listener.frontend_port}"
-    name = "Web-Rule"
-    server_group_id = "${alicloud_slb_server_group.vm-fw-pool-1.id}"
-}
+# resource "alicloud_slb_rule" "ext-default" {
+#    load_balancer_id = "${alicloud_slb.skillet-ext-LB.id}"
+#    frontend_port = "${alicloud_slb_listener.ext-http-listener.frontend_port}"
+#    name = "Web-Rule"
+#    server_group_id = "${alicloud_slb_server_group.vm-fw-pool-1.id}"
+#}
 

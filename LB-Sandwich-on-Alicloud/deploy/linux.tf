@@ -8,15 +8,23 @@ resource "alicloud_instance" "Server1" {
   vswitch_id            = "${alicloud_vswitch.Server1-vswitch.id}"
   private_ip            = "${var.Server1-IP}"
   host_name             = "${var.Server1-Name}"
-  key_name              = "${var.Server-key}"
+#  key_name              = "${var.Server-key}"
+  password              = "${var.linux_password}"
   description           = "Server1"
   security_enhancement_strategy = "Active"
 
-
-#  internet_charge_type  = "PayByBandwidth"
-  internet_max_bandwidth_out = 0    # No Public IP assigned since we are attaching EIP
-
+  internet_max_bandwidth_out = 0
   instance_charge_type  = "PostPaid"
+
+user_data = <<EOF
+#!/bin/bash -ex
+sudo apt-get update
+sudo apt-get install -y apache2
+sudo rm -f /var/www/html/index.html
+sudo echo "Test Server 1" > /var/www/html/index.html
+sudo echo "done"
+EOF
+
 }
 
 
@@ -31,15 +39,23 @@ resource "alicloud_instance" "Server2" {
   vswitch_id            = "${alicloud_vswitch.Server2-vswitch.id}"
   private_ip            = "${var.Server2-IP}"
   host_name             = "${var.Server2-Name}"
-  key_name              = "${var.Server-key}"
+#  key_name              = "${var.Server-key}"
+  password              = "${var.linux_password}"
   description           = "Server2"
   security_enhancement_strategy = "Active"
 
-
-#  internet_charge_type  = "PayByBandwidth"
-  internet_max_bandwidth_out = 0    # No Public IP assigned since we are attaching EIP
-
+  internet_max_bandwidth_out = 0
   instance_charge_type  = "PostPaid"
+
+user_data = <<EOF
+#!/bin/bash -ex
+sudo apt-get update
+sudo apt-get install -y apache2
+sudo rm -f /var/www/html/index.html
+sudo echo "Test Server 2" > /var/www/html/index.html
+sudo echo "done"
+EOF
+
 }
 
 

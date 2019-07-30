@@ -1,12 +1,7 @@
-# Deploy one PA VM-Series on Alicloud using Terraform
-
-Prequisites:
-- Create a custom image to launch the PA VM
-  - https://docs.paloaltonetworks.com/vm-series/9-0/vm-series-deployment/set-up-the-vm-series-firewall-on-alibaba-cloud/prepare-to-deploy-the-vm-series-firewall-on-alibaba-cloud.html#idd95814fd-ab5f-4a67-a060-e9858975316c
-  - Your customer image name must contain the string: "vm-series-9.0.1"
+# Update Internal LB IP address to address object used in Inbound DNAT rule.
 
 Description:
-- This skillet deploys a single VM-Series on Alibaba Cloud with 3 interfaces (Management, Untrust, Trust), with a public IP attached to the management interface.
+- This skillet will update the IP address of the address object used in the Inbound DNAT rule.
 
 
 ## Support Policy

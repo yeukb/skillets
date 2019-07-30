@@ -1,9 +1,9 @@
 variable "access_key" {
-    default = ""
+    default = "LTAI52jBFX9xYUz2"
 }
 
 variable "secret_key" {
-    default = ""
+    default = "9mZWVGfS3IacEPXw8FUVbV2UvaatCz"
 }
 
 variable "fw-region" {
@@ -128,12 +128,16 @@ variable "Server2-Name" {
 }
 
 
-variable "Server-key" {
-    default = "Aliyun-ssh-key-01"
-}
+# variable "Server-key" {
+#     default = "Aliyun-ssh-key-01"
+# }
 
 
 variable "linux_instance_type" {
     default = "ecs.t5-lc1m1.small"
 }
 
+
+variable "linux_password" {
+    default = "PaloAlto123"
+}
