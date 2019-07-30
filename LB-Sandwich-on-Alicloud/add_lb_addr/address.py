@@ -67,4 +67,5 @@ print(url)
 url = "You can access FW2 using https://%s\n" % (fw2_public_ip)
 print(url)
 
+print("Please redo Step 1 and choose the Destroy option to tear down the environment\n")
 
