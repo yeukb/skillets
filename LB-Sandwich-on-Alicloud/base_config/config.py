@@ -76,3 +76,5 @@ url = " https://%s/api/?key=%s&type=commit&cmd=<commit></commit>" % (fw2_mgmt, f
 response = requests.get(url, verify=False)
 #print response.text
 
+
+print("Base config has been uploaded to the VM-Series. Please use new password for Step 3")
