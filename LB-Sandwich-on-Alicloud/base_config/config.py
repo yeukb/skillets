@@ -1,8 +1,15 @@
 import requests
 import xml.etree.ElementTree as ET
-from python_terraform import Terraform
 import argparse
 import urllib3
+import subprocess
+import sys
+
+def install(package):
+    subprocess.call([sys.executable, "-m", "pip", "install", python_terraform])
+
+
+from python_terraform import Terraform
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
