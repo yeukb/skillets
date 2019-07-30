@@ -1,4 +1,4 @@
-# Deploy one PA VM-Series on Alicloud using Terraform
+# Deploy one PA VM-Series with 3 interfaces on Alicloud using Terraform
 
 Prequisites:
 - Create a custom image to launch the PA VM
