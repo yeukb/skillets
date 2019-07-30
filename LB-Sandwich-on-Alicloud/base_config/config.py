@@ -5,21 +5,13 @@ import urllib3
 import subprocess
 import sys
 
-def install_and_import(package):
-    import importlib
-    try:
-        importlib.import_module(package)
-    except ImportError:
-        import pip
-        pip.main(['install', package])
-    finally:
-        globals()[package] = importlib.import_module(package)
+try:
+    from python_terraform import Terraform
+except ImportError:
+    import pip
+    pip.main(['install', '--user', 'python_terraform'])
+    from python_terraform import Terraform
 
-
-install_and_import('python_terraform')
-
-
-from python_terraform import Terraform
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
